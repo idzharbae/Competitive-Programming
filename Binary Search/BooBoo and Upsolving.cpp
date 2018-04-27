@@ -3,7 +3,7 @@ using namespace std;
 long long arr[100005], N,  M;
 
 // f(t) = true/false : can we do N problems in <= M days where the maximum value of each partition is t
-bool f(int t){
+bool f(long long  t){ // LONG LONG !
 	int partition = 1;
 	long long sum = 0; // dont forget to zero this shit faosjdoasjdsakdlaksd
 	for(int i = 0; i < N; i++){
