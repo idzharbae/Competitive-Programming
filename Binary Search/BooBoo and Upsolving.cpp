@@ -5,7 +5,7 @@ long long arr[100005], N,  M;
 // f(t) = true/false : can we do N problems in <= M days where the maximum value of each partition is t
 bool f(int t){
 	int partition = 1;
-	long long sum;
+	long long sum = 0; // dont forget to zero this shit faosjdoasjdsakdlaksd
 	for(int i = 0; i < N; i++){
 		if(arr[i] > t) return false; // berarti ada nilai individual yang ngelebihin kuota latihan kita, skip.
 		if(sum + arr[i] <= t) sum += arr[i];  // kalau kita jumlahin masih dalam batas kuota, berarti kita masih bisa ngerjain.
