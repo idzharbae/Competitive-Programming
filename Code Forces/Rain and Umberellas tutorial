@@ -1,0 +1,85 @@
+```
+Polycarp lives on a coordinate line at the point x=0. He goes to his friend that lives at the point x=a
+
+. Polycarp can move only from left to right, he can pass one unit of length each second.
+
+Now it's raining, so some segments of his way are in the rain. Formally, it's raining on n
+non-intersecting segments, the i-th segment which is in the rain is represented as [li,ri] (0≤li<ri≤a
+
+).
+
+There are m
+umbrellas lying on the line, the i-th umbrella is located at point xi (0≤xi≤a) and has weight pi
+
+. When Polycarp begins his journey, he doesn't have any umbrellas.
+
+During his journey from x=0
+to x=a Polycarp can pick up and throw away umbrellas. Polycarp picks up and throws down any umbrella instantly. He can carry any number of umbrellas at any moment of time. Because Polycarp doesn't want to get wet, he must carry at least one umbrella while he moves from x to x+1 if a segment [x,x+1] is in the rain (i.e. if there exists some i such that li≤x and x+1≤ri
+
+).
+
+The condition above is the only requirement. For example, it is possible to go without any umbrellas to a point where some rain segment starts, pick up an umbrella at this point and move along with an umbrella. Polycarp can swap umbrellas while he is in the rain.
+
+Each unit of length passed increases Polycarp's fatigue by the sum of the weights of umbrellas he carries while moving.
+
+Can Polycarp make his way from point x=0
+to point x=a? If yes, find the minimum total fatigue after reaching x=a
+
+, if Polycarp picks up and throws away umbrellas optimally.
+Input
+
+The first line contains three integers a
+, n and m (1≤a,m≤2000,1≤n≤⌈a2⌉
+
+) — the point at which Polycarp's friend lives, the number of the segments in the rain and the number of umbrellas.
+
+Each of the next n
+lines contains two integers li and ri (0≤li<ri≤a) — the borders of the i-th segment under rain. It is guaranteed that there is no pair of intersecting segments. In other words, for each pair of segments i and j either ri<lj or rj<li
+
+.
+
+Each of the next m
+lines contains two integers xi and pi (0≤xi≤a, 1≤pi≤105) — the location and the weight of the i
+
+-th umbrella.
+Output
+
+Print "-1" (without quotes) if Polycarp can't make his way from point x=0
+to point x=a. Otherwise print one integer — the minimum total fatigue after reaching x=a, if Polycarp picks up and throws away umbrellas optimally.
+```
+
+Intinya kita perlu berjalan dari 0 -> a, dan harus membawa umberella untuk melewati segment yang sedang hujan. Berjalan dengan
+umberella akan menambah fatigue, dan kita harus mencari cara untuk meminimumkan fatigue tersebut.
+
+Setiap umberella memiliki weight yang berbeda-beda, dan ditemukan pada lokasi yang berbeda-beda. Kita bisa mengganti umberella 
+jika menemukan umberella baru di suatu kordinat. Fatigue hanya dihitung jika kita bergerak dari x ke x+1, dan kedua kordinat
+tersebut sedang hujan. Berarti jika salah satu dari kordinat tersebut tidak hujan, fatigue tidak dihitung.
+
+
+Misalkan dp[i] adalah fatigue minimum untuk berjalan ke kordinat i. Dengan hanya satu state, akan sulit untuk menentukan fatigue
+minimumnya, perhatikan kasus berikut:
+```
+> terdapat umberella pada kordinat 1 dengan weight 2
+> terdapat umberella pada kordinat 3 dengan weight 4
+```
+jika kita segment yang hujan adalah [3,4], maka akan lebih menguntungkan untuk tidak mengambil umberella pada kordinat 1.
+Tetapi ketika pindah dari 5 ke 6, jika kita menggunakan payung di kordinat 3, fatigue yang terakumulasi adalah 12, sedangkan jika
+kita mengambil payung 1 yang lebih awal muncul, fatigue hanya 10.
+
+Artinya kita perlu menyimpan state baru, yaitu j, dimana j adalah payung yang sedang dipegang saat ini.
+dp[i][j] = fatigue minimum pada kordinat i, dengan membawa payung dari kordinat j, j = a+1 berarti tidak membawa payung.
+kita juga perlu menyimpan data kordinat mana saja yang hujan, dan juga letak payung.
+perlu dicatat juga, pada segment hujan [l,r] kita tidak perlu menandai r sebagai hujan, hal ini untuk memudahkan ketika
+berpindah dari r ke bagian yang tidak hujan supaya tidak perlu menambah fatigue.
+
+karna pada awalnya kita tidak membawa payung, maka set semua nilai dp ke INF kecuali dp[0][a+1].
+Transisi :
+1. Jika dp[i][j] = INF, berarti belum ketemu payung j, skip.
+2. Jika sekarang tidak hujan, berarti kita bisa lanjut berjalan tanpa membawa payung. dp[i+1][a+1] = min(dp[i+1][a+1], dp[i][j])
+3. Jika hujan, berarti kita hanya bisa mengupdate j yang lebih kecil dari a+1.
+   if(j < a+1) : dp[i+1][j] = min(dp[i+1][j], dp[i][j] + umb[i])
+4. Jika pada kordinat sekarang terdapat payung, kita bisa memilih untuk mengambil payung itu.
+   if(umb[i] != INF) dp[i+1][i] = min(dp[i+1][i], dp[i][j] + umb[i])
+
+Kemudian solusi dari soalnya adalah nilai minimum dari dp[a].
+
