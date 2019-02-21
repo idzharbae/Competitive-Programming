@@ -34,3 +34,17 @@ int binser(vi arr, int val){
 	if(arr[mid] <= val) mid++;
 	return mid;
 }
+
+int binser(int l, int r, int val){
+	while(r-l > 0){
+		int mid = (l+r)/2;
+		
+		if(mid >= val)
+			r = mid;
+		else if(mid == l)
+			break;
+		l = mid;
+	}
+
+	return r;
+}
