@@ -1,0 +1,214 @@
+entering bfs
+current node 0 size 3
+child v= 1
+capacity available, sink?
+no
+child v= 2
+capacity available, sink?
+no
+child v= 3
+capacity available, sink?
+no
+current node 3 size 1
+child v= 2147483647
+capacity available, sink?
+v=2147483647 u=3
+path_flow=1
+
+entering bfs
+current node 0 size 3
+child v= 1
+capacity available, sink?
+no
+child v= 2
+capacity available, sink?
+no
+child v= 3
+capacity available, sink?
+no
+current node 3 size 1
+child v= 2147483647
+no capacity
+current node 2 size 3
+child v= 2147483647
+capacity available, sink?
+v=2147483647 u=2
+path_flow=1
+
+entering bfs
+current node 0 size 3
+child v= 1
+capacity available, sink?
+no
+child v= 2
+capacity available, sink?
+no
+child v= 3
+capacity available, sink?
+no
+current node 3 size 1
+child v= 2147483647
+no capacity
+current node 2 size 3
+child v= 2147483647
+no capacity
+child v= 42
+capacity available, sink?
+no
+child v= 7
+capacity available, sink?
+no
+current node 7 size 1
+child v= 2147483647
+capacity available, sink?
+v=2147483647 u=7
+path_flow=1
+
+entering bfs
+current node 0 size 3
+child v= 1
+capacity available, sink?
+no
+child v= 2
+no capacity
+child v= 3
+capacity available, sink?
+no
+current node 3 size 1
+child v= 2147483647
+no capacity
+current node 1 size 2
+child v= 2147483647
+capacity available, sink?
+v=2147483647 u=1
+path_flow=1
+
+entering bfs
+current node 0 size 3
+child v= 1
+capacity available, sink?
+no
+child v= 2
+no capacity
+child v= 3
+capacity available, sink?
+no
+current node 3 size 1
+child v= 2147483647
+no capacity
+current node 1 size 2
+child v= 2147483647
+no capacity
+child v= 42
+capacity available, sink?
+no
+current node 42 size 1
+child v= 2147483647
+capacity available, sink?
+v=2147483647 u=42
+path_flow=1
+
+entering bfs
+current node 0 size 3
+child v= 1
+no capacity
+child v= 2
+no capacity
+child v= 3
+capacity available, sink?
+no
+current node 3 size 1
+child v= 2147483647
+no capacity
+no flow break
+ans = 5
+entering bfs
+current node 0 size 3
+child v= 1
+capacity available, sink?
+no
+child v= 2
+capacity available, sink?
+no
+child v= 3
+capacity available, sink?
+no
+current node 3 size 1
+child v= 2147483647
+capacity available, sink?
+v=2147483647 u=3
+path_flow=1
+
+entering bfs
+current node 0 size 3
+child v= 1
+capacity available, sink?
+no
+child v= 2
+capacity available, sink?
+no
+child v= 3
+no capacity
+current node 2 size 2
+child v= 2147483647
+capacity available, sink?
+v=2147483647 u=2
+path_flow=1
+
+entering bfs
+current node 0 size 3
+child v= 1
+capacity available, sink?
+no
+child v= 2
+capacity available, sink?
+no
+child v= 3
+no capacity
+current node 2 size 2
+child v= 2147483647
+no capacity
+child v= 42
+capacity available, sink?
+no
+current node 42 size 1
+child v= 2147483647
+capacity available, sink?
+v=2147483647 u=42
+path_flow=1
+
+entering bfs
+current node 0 size 3
+child v= 1
+capacity available, sink?
+no
+child v= 2
+no capacity
+child v= 3
+no capacity
+current node 1 size 2
+child v= 2147483647
+capacity available, sink?
+v=2147483647 u=1
+path_flow=1
+
+entering bfs
+current node 0 size 3
+child v= 1
+capacity available, sink?
+no
+child v= 2
+no capacity
+child v= 3
+no capacity
+current node 1 size 2
+child v= 2147483647
+no capacity
+child v= 42
+capacity available, sink?
+no
+current node 42 size 1
+child v= 2147483647
+no capacity
+no flow break
+ans = 4
