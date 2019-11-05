@@ -5,8 +5,8 @@ typedef long long ll;
 typedef vector<long long> vi;
 
 int main(){
-	// ios::sync_with_stdio(false);
-	// cin.tie(0);
+	ios::sync_with_stdio(false);
+	cin.tie(0);
 
 	int q; cin>>q;
 	while(q--){
