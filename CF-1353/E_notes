@@ -1,0 +1,11 @@
+k = 2
+0 0 0 0 1 0 1
+1 1 1 1 0 2
+0 0 0 0 1 0
+0 0 0 0 1 1
+
+dp[i][0] ambil min(dp[i-1][0], dp[i-1][1]) + (s[i] != '0') (cuma nambah biaya conversion)
+dp[i][1] ambil min(dp[i-k][1] + pref[i-1] - pref[i-k] + (s[i] != '1'), pref[i-1] + (s[i != '1']))
+                            -- total 1s sampe i-k -- 				   -- 0 in semua nya -- 
+
+                        
